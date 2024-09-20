@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>850</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Graffit Robotics</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resource/resource.qrc">
+    <normaloff>:/icons/img/icon.png</normaloff>:/icons/img/icon.png</iconset>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="runButton">
+      <property name="maximumSize">
+       <size>
+        <width>60</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="toolTip">
+       <string>startup programm</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource/resource.qrc">
+        <normaloff>:/icons/img/play.svg</normaloff>:/icons/img/play.svg</iconset>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="regButton">
+      <property name="maximumSize">
+       <size>
+        <width>60</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="toolTip">
+       <string>register editor</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource/resource.qrc">
+        <normaloff>:/icons/img/server.svg</normaloff>:/icons/img/server.svg</iconset>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="ioButton">
+      <property name="maximumSize">
+       <size>
+        <width>60</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="toolTip">
+       <string>register editor</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource/resource.qrc">
+        <normaloff>:/icons/img/shuffle.svg</normaloff>:/icons/img/shuffle.svg</iconset>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>344</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="4" column="0">
+     <widget class="QPushButton" name="settingsButton">
+      <property name="maximumSize">
+       <size>
+        <width>60</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="toolTip">
+       <string>programm editor</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource/resource.qrc">
+        <normaloff>:/icons/img/settings.svg</normaloff>:/icons/img/settings.svg</iconset>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" rowspan="4">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <widget class="QWidget" name="page"/>
+      <widget class="QWidget" name="page_2"/>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>850</width>
+     <height>43</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>file</string>
+    </property>
+    <addaction name="createFileAction"/>
+    <addaction name="openFileAction"/>
+    <addaction name="saveAction"/>
+    <addaction name="saveAsFileAction"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <action name="createFileAction">
+   <property name="icon">
+    <iconset resource="resource/resource.qrc">
+     <normaloff>:/icons/img/file-plus.svg</normaloff>:/icons/img/file-plus.svg</iconset>
+   </property>
+   <property name="text">
+    <string>create file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="openFileAction">
+   <property name="icon">
+    <iconset resource="resource/resource.qrc">
+     <normaloff>:/icons/img/file.svg</normaloff>:/icons/img/file.svg</iconset>
+   </property>
+   <property name="text">
+    <string>open file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="saveAsFileAction">
+   <property name="icon">
+    <iconset resource="resource/resource.qrc">
+     <normaloff>:/icons/img/file-text.svg</normaloff>:/icons/img/file-text.svg</iconset>
+   </property>
+   <property name="text">
+    <string>save file as ...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="motorContrlAction">
+   <property name="icon">
+    <iconset resource="resource/resource.qrc">
+     <normaloff>:/icons/img/trello.svg</normaloff>:/icons/img/trello.svg</iconset>
+   </property>
+   <property name="text">
+    <string>motion control</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="resetAction">
+   <property name="icon">
+    <iconset resource="resource/resource.qrc">
+     <normaloff>:/icons/img/repeat.svg</normaloff>:/icons/img/repeat.svg</iconset>
+   </property>
+   <property name="text">
+    <string>reset errors</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="connectSTM_action">
+   <property name="icon">
+    <iconset resource="resource/resource.qrc">
+     <normaloff>:/icons/img/shuffle.svg</normaloff>:/icons/img/shuffle.svg</iconset>
+   </property>
+   <property name="text">
+    <string>connect mcu</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+K</string>
+   </property>
+  </action>
+  <action name="saveAction">
+   <property name="icon">
+    <iconset resource="resource/resource.qrc">
+     <normaloff>:/icons/img/save.svg</normaloff>:/icons/img/save.svg</iconset>
+   </property>
+   <property name="text">
+    <string>save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="changeLanguageEnglish">
+   <property name="text">
+    <string>english</string>
+   </property>
+  </action>
+  <action name="changeLanguageRussian">
+   <property name="text">
+    <string>russian</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="resource/resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
