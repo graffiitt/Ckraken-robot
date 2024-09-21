@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QDebug>
 
+#include "commentform.h"
+#include "commandmodel.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui
 {
@@ -21,5 +24,10 @@ public:
 
 private:
     Ui::ProgrammForm *ui;
+    CommentForm *commentWidget;
+    CommandModel *model;
+    
+    void on_createCommand();
+    void on_itemClicked(const QModelIndex &index);
 };
 #endif
