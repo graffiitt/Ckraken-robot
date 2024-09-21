@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "programmform.h"
+#include "settingsform.h"
+
 #include <QDebug>
 
 QT_BEGIN_NAMESPACE
@@ -20,6 +23,12 @@ public:
     ~MainWindow();
 
 private:
+    void on_settingsClicked();
+    void on_programmClicked();
+
+private:
     Ui::MainWindow *ui;
+    ProgrammForm *programmWidget;
+    SettingsForm *settingsWidget;
 };
 #endif // MAINWINDOW_H

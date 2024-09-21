@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingsForm</class>
+ <widget class="QWidget" name="SettingsForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>703</width>
+    <height>342</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Graffit Robotics</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resource/resource.qrc">
+    <normaloff>:/icons/img/icon.png</normaloff>:/icons/img/icon.png</iconset>
+  </property>
+  <property name="documentMode" stdset="0">
+   <bool>false</bool>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+  <action name="createFileAction">
+   <property name="icon">
+    <iconset resource="resource/resource.qrc">
+     <normaloff>:/icons/img/file-plus.svg</normaloff>:/icons/img/file-plus.svg</iconset>
+   </property>
+   <property name="text">
+    <string>create file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="openFileAction">
+   <property name="icon">
+    <iconset resource="resource/resource.qrc">
+     <normaloff>:/icons/img/file.svg</normaloff>:/icons/img/file.svg</iconset>
+   </property>
+   <property name="text">
+    <string>open file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="saveAsFileAction">
+   <property name="icon">
+    <iconset resource="resource/resource.qrc">
+     <normaloff>:/icons/img/file-text.svg</normaloff>:/icons/img/file-text.svg</iconset>
+   </property>
+   <property name="text">
+    <string>save file as ...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="motorContrlAction">
+   <property name="icon">
+    <iconset resource="resource/resource.qrc">
+     <normaloff>:/icons/img/trello.svg</normaloff>:/icons/img/trello.svg</iconset>
+   </property>
+   <property name="text">
+    <string>motion control</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="resetAction">
+   <property name="icon">
+    <iconset resource="resource/resource.qrc">
+     <normaloff>:/icons/img/repeat.svg</normaloff>:/icons/img/repeat.svg</iconset>
+   </property>
+   <property name="text">
+    <string>reset errors</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="connectSTM_action">
+   <property name="icon">
+    <iconset resource="resource/resource.qrc">
+     <normaloff>:/icons/img/shuffle.svg</normaloff>:/icons/img/shuffle.svg</iconset>
+   </property>
+   <property name="text">
+    <string>connect mcu</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+K</string>
+   </property>
+  </action>
+  <action name="saveAction">
+   <property name="icon">
+    <iconset resource="resource/resource.qrc">
+     <normaloff>:/icons/img/save.svg</normaloff>:/icons/img/save.svg</iconset>
+   </property>
+   <property name="text">
+    <string>save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="changeLanguageEnglish">
+   <property name="text">
+    <string>english</string>
+   </property>
+  </action>
+  <action name="changeLanguageRussian">
+   <property name="text">
+    <string>russian</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="resource/resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
