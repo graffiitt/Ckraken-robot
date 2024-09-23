@@ -10,5 +10,11 @@ ExecutorComment::~ExecutorComment()
 
 QString ExecutorComment::getStroke()
 {
-    return "#" + text;
+    return "# " + text;
+}
+
+int ExecutorComment::execCommand(int number, const QList<ICommand *> *programm)
+{
+    Q_UNUSED(programm);
+    return number ++;
 }

@@ -10,8 +10,13 @@ public:
     ExecutorComment(int index);
     ~ExecutorComment();
 
+// virtual
     QString getStroke();
+    int execCommand(int number, const QList<ICommand*> *programm);
+
     void setText(QString data){text = data;};
+    QString getText() {return text;};
+    
 private:
     QString text;
 };

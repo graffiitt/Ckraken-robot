@@ -23,7 +23,7 @@ CommentForm::~CommentForm()
 void CommentForm::setCommand(ICommand *cmd)
 {
     this->cmd = static_cast<ExecutorComment *>(cmd);
-    
+    ui->lineEdit->setText(this->cmd->getText());
 }
 
 ICommand *CommentForm::createCommand(int index)

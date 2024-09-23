@@ -1,4 +1,5 @@
 #include "commandmodel.h"
+#include <QDebug>
 
 CommandModel::CommandModel(/* args */)
 {
@@ -10,8 +11,11 @@ CommandModel::~CommandModel()
 
 void CommandModel::insertCommand(QModelIndex ind, ICommand *cmd)
 {
-    beginInsertRows(QModelIndex(), commands.size()-1, commands.size()-1);
-    commands.insert(ind.row(), cmd);
+    beginInsertRows(QModelIndex(), commands.size() - 1, commands.size() - 1);
+    if (ind.row() == -1)
+        commands.append(cmd);
+    else
+        commands.insert(ind.row(), cmd);
     endInsertRows();
 }
 
@@ -22,8 +26,8 @@ void CommandModel::updateData()
 
 ICommand *CommandModel::getCommand(const QModelIndex &ind)
 {
-    if(commands.size() == 0)
-    return nullptr;
+    if (commands.size() == 0)
+        return nullptr;
     return commands.at(ind.row());
 }
 
@@ -39,7 +43,7 @@ int CommandModel::columnCount(const QModelIndex &parent) const
 
 QVariant CommandModel::data(const QModelIndex &index, int role) const
 {
-   if (!index.isValid())
+    if (!index.isValid())
         return QVariant();
 
     switch (role)

@@ -2,6 +2,7 @@
 #define ICOMMAND_H
 
 #include <QString>
+#include <QList>
 
 class ICommand
 {
@@ -11,8 +12,9 @@ public:
     ICommand(int indexWidget);
     ~ICommand();
 
-    int getIndex();
     virtual QString getStroke() = 0;
+    virtual int execCommand(int number, const QList<ICommand*> *programm) = 0;
+    int getIndex();
 
 private:
     int index; // index widget

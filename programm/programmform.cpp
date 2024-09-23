@@ -15,6 +15,7 @@ ProgrammForm::ProgrammForm(QWidget *parent)
 
     connect(ui->createButton, &QPushButton::clicked, this, &ProgrammForm::on_createCommand);
     connect(ui->tableView, &QTableView::clicked, this, &ProgrammForm::on_itemClicked);
+    
     connect(commentWidget, &CommentForm::dataChanged, model, &CommandModel::updateData);
 }
 
