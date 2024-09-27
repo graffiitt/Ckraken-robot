@@ -22,47 +22,20 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QPushButton" name="runButton">
-      <property name="maximumSize">
+    <item row="4" column="0">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
        <size>
-        <width>60</width>
-        <height>16777215</height>
+        <width>20</width>
+        <height>344</height>
        </size>
       </property>
-      <property name="toolTip">
-       <string>startup programm</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="resource/resource.qrc">
-        <normaloff>:/icons/img/play.svg</normaloff>:/icons/img/play.svg</iconset>
-      </property>
-     </widget>
+     </spacer>
     </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="regButton">
-      <property name="maximumSize">
-       <size>
-        <width>60</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="toolTip">
-       <string>register editor</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="resource/resource.qrc">
-        <normaloff>:/icons/img/server.svg</normaloff>:/icons/img/server.svg</iconset>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
+    <item row="3" column="0">
      <widget class="QPushButton" name="ioButton">
       <property name="maximumSize">
        <size>
@@ -82,20 +55,47 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
+    <item row="2" column="0">
+     <widget class="QPushButton" name="regButton">
+      <property name="maximumSize">
        <size>
-        <width>20</width>
-        <height>344</height>
+        <width>60</width>
+        <height>16777215</height>
        </size>
       </property>
-     </spacer>
+      <property name="toolTip">
+       <string>register editor</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource/resource.qrc">
+        <normaloff>:/icons/img/server.svg</normaloff>:/icons/img/server.svg</iconset>
+      </property>
+     </widget>
     </item>
-    <item row="4" column="0">
+    <item row="1" column="0">
+     <widget class="QPushButton" name="runButton">
+      <property name="maximumSize">
+       <size>
+        <width>60</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="toolTip">
+       <string>startup programm</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource/resource.qrc">
+        <normaloff>:/icons/img/play.svg</normaloff>:/icons/img/play.svg</iconset>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
      <widget class="QPushButton" name="settingsButton">
       <property name="maximumSize">
        <size>
@@ -115,8 +115,11 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="1" rowspan="4">
+    <item row="1" column="1" rowspan="4">
      <widget class="QStackedWidget" name="stackedWidget"/>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <layout class="QVBoxLayout" name="upLayout"/>
     </item>
    </layout>
   </widget>

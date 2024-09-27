@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-set(PROJECT comment_cmd)
+set(PROJECT stateManager)
  
 file(GLOB CPP_FILE "*.cpp")
 message("Adding ${PROJECT} CPP files: " )
@@ -19,17 +19,12 @@ foreach(source ${UI_FILE})
     message("  - " ${source})
 endforeach(source)
 
-find_library(stateManager ../../../stateManager)
-
 add_library( 
     ${PROJECT} SHARED
-    ../icommand.h
-    ../icommand.cpp
-    ../icommandform.h
     ${CPP_FILE}
     ${H_FILE}
     ${UI_FILE}
     )
 
-target_link_libraries(${PROJECT} ${catkin_LIBRARIES} Qt5::Widgets stateManager)
+target_link_libraries(${PROJECT} ${catkin_LIBRARIES} Qt5::Widgets)
 target_include_directories(${PROJECT} PUBLIC ${CMAKE_CURRENT_LIST_DIR})

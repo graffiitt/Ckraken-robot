@@ -16,6 +16,9 @@ public:
     virtual void setCommand(ICommand *cmd) = 0;
     virtual ICommand *createCommand(int index) = 0;
 
+public slots:
+    virtual void setEditing(bool state) {};
+
 signals:
     void dataChanged();
 

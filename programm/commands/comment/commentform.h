@@ -23,6 +23,9 @@ public:
     void setCommand(ICommand *cmd);
     ICommand *createCommand(int index);
 
+public slots:
+    virtual void setEditing(bool state) { this->setEnabled(state); };
+
 private:
     Ui::CommentForm *ui;
     ExecutorComment *cmd;

@@ -6,6 +6,7 @@
 
 #include "commentform.h"
 #include "commandmodel.h"
+#include "iexecutor.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -22,11 +23,18 @@ public:
     ProgrammForm(QWidget *parent = nullptr);
     ~ProgrammForm();
 
+signals:
+    void changeEditMode(bool);
+
 private:
     Ui::ProgrammForm *ui;
     CommentForm *commentWidget;
     CommandModel *model;
     
+    IExecutor *executor;
+
+    void on_stopCommand();
+    void on_runCommand();
     void on_createCommand();
     void on_itemClicked(const QModelIndex &index);
 };
