@@ -19,6 +19,14 @@ void CommandModel::insertCommand(QModelIndex ind, ICommand *cmd)
     endInsertRows();
 }
 
+void CommandModel::deleteCommand(QModelIndex ind)
+{
+    if(ind.row() == -1) return;
+    beginRemoveRows(QModelIndex(), ind.row(), ind.row());
+    delete commands.takeAt(ind.row());
+    endRemoveRows();
+}
+
 void CommandModel::updateData()
 {
     dataChanged(QModelIndex(), QModelIndex());
@@ -29,6 +37,13 @@ ICommand *CommandModel::getCommand(const QModelIndex &ind)
     if (commands.size() == 0)
         return nullptr;
     return commands.at(ind.row());
+}
+
+ICommand *CommandModel::getCommand(const int index)
+{
+    if (commands.size() == 0)
+        return nullptr;
+    return commands.at(index);
 }
 
 int CommandModel::rowCount(const QModelIndex &parent) const

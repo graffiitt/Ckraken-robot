@@ -4,9 +4,11 @@
 #include <QWidget>
 #include <QDebug>
 
-#include "commentform.h"
 #include "commandmodel.h"
 #include "iexecutor.h"
+
+#include "commentform.h"
+#include "timeform.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -28,14 +30,17 @@ signals:
 
 private:
     Ui::ProgrammForm *ui;
+    TimeForm *timeWidget;
     CommentForm *commentWidget;
     CommandModel *model;
-    
+
     IExecutor *executor;
 
     void on_stopCommand();
     void on_runCommand();
     void on_createCommand();
+    void on_deleteCommand();
     void on_itemClicked(const QModelIndex &index);
+    void on_changeLine(int num);
 };
 #endif

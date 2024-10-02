@@ -6,8 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    stateManager = new StateManager();
-    ui->upLayout->addWidget(stateManager);
+    ui->upLayout->addWidget(StateManager::getInstance());
 
     programmWidget = new ProgrammForm(this);
     ui->stackedWidget->addWidget(programmWidget);
@@ -21,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete stateManager;
+
     delete programmWidget;
     delete settingsWidget;
 }

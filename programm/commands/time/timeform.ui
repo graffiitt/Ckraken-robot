@@ -1,110 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ProgrammForm</class>
- <widget class="QWidget" name="ProgrammForm">
+ <class>TimeForm</class>
+ <widget class="QWidget" name="TimeForm">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>724</width>
-    <height>344</height>
+    <width>703</width>
+    <height>342</height>
    </rect>
-  </property>
-  <property name="sizePolicy">
-   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
-   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Graffit Robotics</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../resource/resource.qrc">
+   <iconset resource="../../../resource/resource.qrc">
     <normaloff>:/icons/img/icon.png</normaloff>:/icons/img/icon.png</iconset>
   </property>
   <property name="documentMode" stdset="0">
    <bool>false</bool>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="1">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="1">
-      <widget class="QPushButton" name="stepButton">
-       <property name="text">
-        <string>step</string>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QPushButton" name="holdButton">
-       <property name="text">
-        <string>hold</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QPushButton" name="runButton">
-       <property name="text">
-        <string>run</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QPushButton" name="deleteButton">
-       <property name="text">
-        <string>delete</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QPushButton" name="createButton">
-       <property name="text">
-        <string>create</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="1" column="1">
-    <widget class="QTabWidget" name="commandsWidget">
-     <property name="enabled">
-      <bool>true</bool>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>time delay:</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="0" rowspan="2">
-    <widget class="QTableView" name="tableView">
+   <item row="2" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="1">
+    <widget class="QSpinBox" name="timeBox">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="minimumSize">
-      <size>
-       <width>350</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="showDropIndicator" stdset="0">
-      <bool>false</bool>
-     </property>
-     <property name="selectionMode">
-      <enum>QAbstractItemView::SingleSelection</enum>
+     <property name="maximum">
+      <number>10000</number>
      </property>
     </widget>
    </item>
   </layout>
   <action name="createFileAction">
    <property name="icon">
-    <iconset resource="../resource/resource.qrc">
+    <iconset resource="../../../resource/resource.qrc">
      <normaloff>:/icons/img/file-plus.svg</normaloff>:/icons/img/file-plus.svg</iconset>
    </property>
    <property name="text">
@@ -116,7 +69,7 @@
   </action>
   <action name="openFileAction">
    <property name="icon">
-    <iconset resource="../resource/resource.qrc">
+    <iconset resource="../../../resource/resource.qrc">
      <normaloff>:/icons/img/file.svg</normaloff>:/icons/img/file.svg</iconset>
    </property>
    <property name="text">
@@ -128,7 +81,7 @@
   </action>
   <action name="saveAsFileAction">
    <property name="icon">
-    <iconset resource="../resource/resource.qrc">
+    <iconset resource="../../../resource/resource.qrc">
      <normaloff>:/icons/img/file-text.svg</normaloff>:/icons/img/file-text.svg</iconset>
    </property>
    <property name="text">
@@ -140,7 +93,7 @@
   </action>
   <action name="motorContrlAction">
    <property name="icon">
-    <iconset resource="../resource/resource.qrc">
+    <iconset resource="../../../resource/resource.qrc">
      <normaloff>:/icons/img/trello.svg</normaloff>:/icons/img/trello.svg</iconset>
    </property>
    <property name="text">
@@ -152,7 +105,7 @@
   </action>
   <action name="resetAction">
    <property name="icon">
-    <iconset resource="../resource/resource.qrc">
+    <iconset resource="../../../resource/resource.qrc">
      <normaloff>:/icons/img/repeat.svg</normaloff>:/icons/img/repeat.svg</iconset>
    </property>
    <property name="text">
@@ -164,7 +117,7 @@
   </action>
   <action name="connectSTM_action">
    <property name="icon">
-    <iconset resource="../resource/resource.qrc">
+    <iconset resource="../../../resource/resource.qrc">
      <normaloff>:/icons/img/shuffle.svg</normaloff>:/icons/img/shuffle.svg</iconset>
    </property>
    <property name="text">
@@ -176,7 +129,7 @@
   </action>
   <action name="saveAction">
    <property name="icon">
-    <iconset resource="../resource/resource.qrc">
+    <iconset resource="../../../resource/resource.qrc">
      <normaloff>:/icons/img/save.svg</normaloff>:/icons/img/save.svg</iconset>
    </property>
    <property name="text">
@@ -198,7 +151,7 @@
   </action>
  </widget>
  <resources>
-  <include location="../resource/resource.qrc"/>
+  <include location="../../../resource/resource.qrc"/>
  </resources>
  <connections/>
 </ui>

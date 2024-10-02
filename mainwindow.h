@@ -31,6 +31,6 @@ private:
     Ui::MainWindow *ui;
     ProgrammForm *programmWidget;
     SettingsForm *settingsWidget;
-    StateManager *stateManager;
+    //StateManager *stateManager;
 };
 #endif // MAINWINDOW_H

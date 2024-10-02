@@ -34,7 +34,7 @@ endforeach(source)
 set(QRCFILE resource/resource.qrc)
 
 add_executable(
-    ${PROJECT_NAME} 
+    ${PROJECT_NAME} MACOSX_BUNDLE
     ${CPP_FILE}
     ${H_FILE}
     ${UI_FILE}
@@ -43,4 +43,12 @@ add_executable(
 
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} Qt5::Widgets programm_part stateManager)
 target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
-install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+install(TARGETS ${PROJECT_NAME}
+BUNDLE DESTINATION . COMPONENT Runtime
+RUNTIME DESTINATION bin COMPONENT Runtime
+)
+
+ # Note Mac specific extension .app
+set(APPS "/${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}.app")
+set(CPACK_GENERATOR "DragNDrop")
+include(CPack)

@@ -17,12 +17,32 @@ class StateManager : public QWidget
     Q_OBJECT
 
 public:
-    StateManager(QWidget *parent = nullptr);
+
+    enum Icon{
+        RUN,
+        STEP,
+        IO,
+        FAULT,
+        MCU,
+        HOLD
+    };
+
+    static StateManager* getInstance()
+    {
+        static StateManager* inst = new StateManager;
+        return inst;
+    };
+    StateManager(StateManager const &) = delete;
+    StateManager &operator=(StateManager const &) = delete;
     ~StateManager();
 
     void setInfo(QString text);
+    void setIconState(enum Icon ico, bool state);
+    void setLineNumber(int number);
 
 private:
+    StateManager(QWidget *parent = nullptr);
+
     Ui::StateManager *ui;
 };
 #endif

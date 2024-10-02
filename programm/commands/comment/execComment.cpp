@@ -16,15 +16,13 @@ QString ExecutorComment::getStroke()
 
     return "# " + text;
 }
-
-int ExecutorComment::execCommand(int number, const QList<ICommand *> *programm)
+ 
+int ExecutorComment::execCommand(int number, const QList<ICommand *> &programm)
 {
     Q_UNUSED(programm);
 
-    QMetaObject::invokeMethod(this, []()
-                              { 
-                                
-                                qDebug() << "comment exec invoke"; }, Qt::QueuedConnection);
+    QMetaObject::invokeMethod(StateManager::getInstance(), [this]()
+                              { StateManager::getInstance()->setInfo(text); }, Qt::QueuedConnection);
 
     return number++;
 }

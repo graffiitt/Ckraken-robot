@@ -11,8 +11,7 @@ CommentForm::CommentForm(QString name, QWidget *parent)
             {
                 cmd->setText(str);
                 emit dataChanged();
-            }
-            qDebug()<<str; });
+            } });
 }
 
 CommentForm::~CommentForm()
@@ -28,7 +27,6 @@ void CommentForm::setCommand(ICommand *cmd)
 
 ICommand *CommentForm::createCommand(int index)
 {
-    qDebug() << "create comment";
     ExecutorComment *cmd = new ExecutorComment(index);
     cmd->setText(ui->lineEdit->text());
     this->cmd = cmd;

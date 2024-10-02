@@ -1,6 +1,7 @@
 #ifndef ICOMMAND_H
 #define ICOMMAND_H
 
+#include <QDebug>
 #include <QObject>
 #include <QString>
 #include <QList>
@@ -12,7 +13,7 @@ public:
     ~ICommand();
 
     virtual QString getStroke() = 0;
-    virtual int execCommand(int number, const QList<ICommand *> *programm) = 0;
+    virtual int execCommand(int number, const QList<ICommand *> &programm) = 0;
     int getIndex();
 
 private:
