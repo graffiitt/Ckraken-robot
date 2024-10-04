@@ -1,6 +1,7 @@
 #ifndef PROGRAMMFORM_H
 #define PROGRAMMFORM_H
 
+#include <QStandardPaths>
 #include <QWidget>
 #include <QDebug>
 
@@ -25,10 +26,19 @@ public:
     ProgrammForm(QWidget *parent = nullptr);
     ~ProgrammForm();
 
+    void openProgramm();
+    void saveProgramm();
+    void saveAsProgramm();
+    void createNewProgramm();
+
 signals:
     void changeEditMode(bool);
 
 private:
+    QString pathProgramm;
+    QString pathFolder = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) +
+                         "/GraffitRobotics";
+
     Ui::ProgrammForm *ui;
     TimeForm *timeWidget;
     CommentForm *commentWidget;
@@ -42,5 +52,8 @@ private:
     void on_deleteCommand();
     void on_itemClicked(const QModelIndex &index);
     void on_changeLine(int num);
+
+    void writeFile(QString path);
+    void loadFile(QString path);
 };
 #endif

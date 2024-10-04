@@ -21,3 +21,16 @@ int ExecutorTimer::execCommand(int number, const QList<ICommand *> &programm)
     QThread::sleep(timeDelay);
     return number++;
 }
+
+QJsonObject ExecutorTimer::toJSON()
+{
+    QJsonObject obj;
+    obj["index"] = getIndex();
+    obj["time"] = QString::number(timeDelay);
+    return obj;
+}
+
+void ExecutorTimer::fromJSON(const QJsonObject &obj)
+{
+    timeDelay = obj["time"].toString().toUInt();
+}

@@ -21,9 +21,18 @@ void CommandModel::insertCommand(QModelIndex ind, ICommand *cmd)
 
 void CommandModel::deleteCommand(QModelIndex ind)
 {
-    if(ind.row() == -1) return;
+    if (ind.row() == -1)
+        return;
     beginRemoveRows(QModelIndex(), ind.row(), ind.row());
     delete commands.takeAt(ind.row());
+    endRemoveRows();
+}
+
+void CommandModel::deleteAllCommands()
+{
+    beginRemoveRows(QModelIndex(), 0, commands.size()-1);
+    qDeleteAll(commands);
+    commands.clear();
     endRemoveRows();
 }
 

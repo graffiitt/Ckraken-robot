@@ -16,6 +16,8 @@ public:
 
     void setText(QString data) { text = data; };
     QString getText() { return text; };
+    QJsonObject toJSON();
+    void fromJSON(const QJsonObject &obj);
 
 private:
     QString text;

@@ -26,3 +26,17 @@ int ExecutorComment::execCommand(int number, const QList<ICommand *> &programm)
 
     return number++;
 }
+
+QJsonObject ExecutorComment::toJSON()
+{
+    QJsonObject obj;
+    obj["index"] = getIndex();
+    obj["text"] = text;
+    return obj;
+}
+
+void ExecutorComment::fromJSON(const QJsonObject &obj)
+{
+    text = obj["text"].toString();
+    
+}

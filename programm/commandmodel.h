@@ -13,10 +13,11 @@ public:
 
     void insertCommand(QModelIndex ind, ICommand *cmd);
     void deleteCommand(QModelIndex ind);
+    void deleteAllCommands();
     void updateData();
     ICommand *getCommand(const QModelIndex &ind);
     ICommand *getCommand(const int index);
-    const QList<ICommand *> getListCommands() {return commands;};
+    const QList<ICommand *> getListCommands() { return commands; };
     int getSize() { return commands.size(); };
 
     // reiplemented fnc

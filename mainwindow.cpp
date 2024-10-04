@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "statemanager.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -33,4 +35,25 @@ void MainWindow::on_settingsClicked()
 void MainWindow::on_programmClicked()
 {
     ui->stackedWidget->setCurrentWidget(programmWidget);
+}
+
+void MainWindow::on_createFileAction_triggered()
+{
+    qDebug() << "create file";
+    programmWidget->createNewProgramm();
+}
+
+void MainWindow::on_openFileAction_triggered()
+{
+    programmWidget->openProgramm();
+}
+
+void MainWindow::on_saveAsFileAction_triggered()
+{
+    programmWidget->saveAsProgramm();
+}
+
+void MainWindow::on_saveAction_triggered()
+{
+    programmWidget->saveProgramm();
 }

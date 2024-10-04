@@ -43,12 +43,23 @@ add_executable(
 
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} Qt5::Widgets programm_part stateManager)
 target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+
 install(TARGETS ${PROJECT_NAME}
+LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
 BUNDLE DESTINATION . COMPONENT Runtime
 RUNTIME DESTINATION bin COMPONENT Runtime
 )
 
+set(MACOSX_BUNDLE_ICON_FILE spacex)
+set_source_files_properties(${MACOSX_BUNDLE_ICON_FILE} PROPERTIES
+       MACOSX_PACKAGE_LOCATION "Resources")
+       
+file(COPY "${CMAKE_SOURCE_DIR}/resource/icon/spacex.icns"
+             DESTINATION "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.app/Contents/Resources")
+
  # Note Mac specific extension .app
 set(APPS "/${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}.app")
+install(CODE "include(BundleUtilities)
+    fixup_bundle(\"${APPS}\" \"\" \"${DIRS}\")")
 set(CPACK_GENERATOR "DragNDrop")
 include(CPack)

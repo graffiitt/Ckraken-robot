@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "programmform.h"
 #include "settingsform.h"
-#include "statemanager.h"
+
 
 #include <QDebug>
 
@@ -23,14 +23,18 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private:
+private slots:
     void on_settingsClicked();
     void on_programmClicked();
+    void on_createFileAction_triggered();
+    void on_openFileAction_triggered();
+    void on_saveAsFileAction_triggered();
+    void on_saveAction_triggered();
 
 private:
     Ui::MainWindow *ui;
     ProgrammForm *programmWidget;
     SettingsForm *settingsWidget;
-    //StateManager *stateManager;
+
 };
 #endif // MAINWINDOW_H
