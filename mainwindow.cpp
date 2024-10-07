@@ -17,6 +17,10 @@ MainWindow::MainWindow(QWidget *parent)
     settingsWidget = new SettingsForm(this);
     ui->stackedWidget->addWidget(settingsWidget);
     connect(ui->settingsButton, &QPushButton::clicked, this, &MainWindow::on_settingsClicked);
+
+    ioWidget = new IOForm(this);
+    ui->stackedWidget->addWidget(ioWidget);
+    connect(ui->ioButton, &QPushButton::clicked, [this]{ui->stackedWidget->setCurrentWidget(ioWidget);});
 }
 
 MainWindow::~MainWindow()
@@ -25,6 +29,7 @@ MainWindow::~MainWindow()
 
     delete programmWidget;
     delete settingsWidget;
+    delete ioWidget;
 }
 
 void MainWindow::on_settingsClicked()
@@ -39,7 +44,6 @@ void MainWindow::on_programmClicked()
 
 void MainWindow::on_createFileAction_triggered()
 {
-    qDebug() << "create file";
     programmWidget->createNewProgramm();
 }
 

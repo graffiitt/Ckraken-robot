@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>IOForm</class>
+ <widget class="QWidget" name="IOForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>645</width>
+    <height>338</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Graffit Robotics</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resource/resource.qrc">
+    <normaloff>:/icons/img/icon.png</normaloff>:/icons/img/icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QLabel#mcuLabel{
+    background-color: rgb(95, 95, 0);
+    text-align:center;
+}
+QLabel#faultLabel{
+ 
+    background-color: rgb(110, 0, 0);
+	text-align:center;
+}
+QLabel#holdLabel{
+
+    background-color:rgb(110, 0, 0);
+	text-align:center;
+}
+QLabel#ioLabel{
+
+    background-color: rgb(0, 76, 0);
+	text-align:center;
+}
+QLabel#runLabel{
+
+    background-color:  rgb(0, 76, 0);
+	text-align:center;
+}
+QLabel#stepLabel{
+
+    background-color: rgb(95, 95, 0);
+	text-align:center;
+}
+</string>
+  </property>
+  <property name="documentMode" stdset="0">
+   <bool>false</bool>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="1">
+    <widget class="QLabel" name="label">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>inputs</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <layout class="QVBoxLayout" name="outputLayout"/>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>outputs</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <layout class="QVBoxLayout" name="inputLayout"/>
+   </item>
+   <item row="2" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+  <action name="createFileAction">
+   <property name="icon">
+    <iconset resource="../resource/resource.qrc">
+     <normaloff>:/icons/img/file-plus.svg</normaloff>:/icons/img/file-plus.svg</iconset>
+   </property>
+   <property name="text">
+    <string>create file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="openFileAction">
+   <property name="icon">
+    <iconset resource="../resource/resource.qrc">
+     <normaloff>:/icons/img/file.svg</normaloff>:/icons/img/file.svg</iconset>
+   </property>
+   <property name="text">
+    <string>open file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="saveAsFileAction">
+   <property name="icon">
+    <iconset resource="../resource/resource.qrc">
+     <normaloff>:/icons/img/file-text.svg</normaloff>:/icons/img/file-text.svg</iconset>
+   </property>
+   <property name="text">
+    <string>save file as ...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="motorContrlAction">
+   <property name="icon">
+    <iconset resource="../resource/resource.qrc">
+     <normaloff>:/icons/img/trello.svg</normaloff>:/icons/img/trello.svg</iconset>
+   </property>
+   <property name="text">
+    <string>motion control</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="resetAction">
+   <property name="icon">
+    <iconset resource="../resource/resource.qrc">
+     <normaloff>:/icons/img/repeat.svg</normaloff>:/icons/img/repeat.svg</iconset>
+   </property>
+   <property name="text">
+    <string>reset errors</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="connectSTM_action">
+   <property name="icon">
+    <iconset resource="../resource/resource.qrc">
+     <normaloff>:/icons/img/shuffle.svg</normaloff>:/icons/img/shuffle.svg</iconset>
+   </property>
+   <property name="text">
+    <string>connect mcu</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+K</string>
+   </property>
+  </action>
+  <action name="saveAction">
+   <property name="icon">
+    <iconset resource="../resource/resource.qrc">
+     <normaloff>:/icons/img/save.svg</normaloff>:/icons/img/save.svg</iconset>
+   </property>
+   <property name="text">
+    <string>save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="changeLanguageEnglish">
+   <property name="text">
+    <string>english</string>
+   </property>
+  </action>
+  <action name="changeLanguageRussian">
+   <property name="text">
+    <string>russian</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../resource/resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>

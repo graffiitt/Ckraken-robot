@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "programmform.h"
 #include "settingsform.h"
-
+#include "ioform.h"
 
 #include <QDebug>
 
@@ -35,6 +35,6 @@ private:
     Ui::MainWindow *ui;
     ProgrammForm *programmWidget;
     SettingsForm *settingsWidget;
-
+    IOForm *ioWidget;
 };
 #endif // MAINWINDOW_H
