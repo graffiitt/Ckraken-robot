@@ -36,6 +36,7 @@ public:
     StateManager &operator=(StateManager const &) = delete;
     ~StateManager();
 
+    void setProgrammName(QString path);
     void setInfo(QString text);
     void setIconState(enum Icon ico, bool state);
     void setLineNumber(int number);

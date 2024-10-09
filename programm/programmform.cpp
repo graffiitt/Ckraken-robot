@@ -184,6 +184,9 @@ void ProgrammForm::loadFile(QString path)
 {
     if (QFile::exists(path))
     {
+
+        StateManager::getInstance()->setProgrammName(path);
+
         QFile loadFile(path);
         if (!loadFile.open(QIODevice::ReadOnly))
         {

@@ -18,6 +18,13 @@ IOForm::IOForm(QWidget *parent)
         btnList.append(bt);
         connect(bt, &QPushButton::clicked, this, &IOForm::on_buttonClicked);
     }
+    for (int i = 0; i < 8; i++)
+    {
+        QPushButton *bt = new QPushButton("input " + QString::number(i + 1));
+        bt->setStyleSheet(QSS_OFF);
+        ui->inputLayout->addWidget(bt);
+        btnList.append(bt);
+    }
 }
 
 IOForm::~IOForm()
@@ -28,7 +35,7 @@ IOForm::~IOForm()
 
 void IOForm::on_buttonClicked()
 {
-    QPushButton *bt = static_cast<QPushButton*>(sender());
-    
+    QPushButton *bt = static_cast<QPushButton *>(sender());
+
     bt->setStyleSheet(QSS_ON);
 }

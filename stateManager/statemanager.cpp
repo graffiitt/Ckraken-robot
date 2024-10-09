@@ -17,6 +17,11 @@ StateManager::~StateManager()
     delete ui;
 }
 
+void StateManager::setProgrammName(QString path)
+{
+    ui->prgNameLabel->setText(path.split('/').takeLast());
+}
+
 void StateManager::setInfo(QString text)
 {
     ui->infoLabel->setText(text);
