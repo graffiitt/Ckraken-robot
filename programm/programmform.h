@@ -10,6 +10,7 @@
 
 #include "commentform.h"
 #include "timeform.h"
+#include "prgchangeform.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -42,6 +43,7 @@ private:
     Ui::ProgrammForm *ui;
     TimeForm *timeWidget;
     CommentForm *commentWidget;
+    PrgChangeForm *prgChanger;
     CommandModel *model;
 
     IExecutor *executor;

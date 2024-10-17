@@ -1,8 +1,11 @@
 #ifndef PHREI_IO_H
 #define PHREI_IO_H
 
-#include <QTimer>
 #include <QObject>
+
+#include "statemanager.h"
+#include "md_client.h"
+
 #include <QDebug>
 
 class PherephicalIO : public QObject
@@ -11,37 +14,33 @@ class PherephicalIO : public QObject
 public:
     PherephicalIO(PherephicalIO const &) = delete;
     PherephicalIO &operator=(PherephicalIO const &) = delete;
-    ~PherephicalIO()
-    {
-        delete timer;
+    ~PherephicalIO() {
+
     };
+
     static PherephicalIO *getInstance()
     {
         static PherephicalIO *inst = new PherephicalIO();
         return inst;
     };
 
-    void startRequesting(bool state)
+    void startRequesting(bool state) {
+
+    };
+
+    void checkConnection()
     {
-        if (state)
-            timer->start();
-        else
-            timer->stop();
+        StateManager::getInstance()->setIconState(StateManager::Icon::MCU, true);
+        StateManager::getInstance()->setInfo("io module not found");
     };
 
 private:
-    QTimer *timer;
+    
 
     PherephicalIO()
     {
-        timer = new QTimer(this);
-        timer->setInterval(1000);
-        QObject::connect(timer, &QTimer::timeout, this, &PherephicalIO::on_timer_timeout);
-    };
 
-    void on_timer_timeout()
-    {
-        qDebug() << "request inputs";
+        
     };
 };
 

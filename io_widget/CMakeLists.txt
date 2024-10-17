@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
 set(PROJECT ioWidget)
- 
+
 file(GLOB CPP_FILE "*.cpp")
 message("Adding ${PROJECT} CPP files: " )
 foreach(source ${CPP_FILE})
@@ -19,6 +19,9 @@ foreach(source ${UI_FILE})
     message("  - " ${source})
 endforeach(source)
 
+find_library(../stateManager stateManager)
+find_library(../devices devices)
+
 add_library( 
     ${PROJECT} SHARED
     ${CPP_FILE}
@@ -26,5 +29,5 @@ add_library(
     ${UI_FILE}
     )
 
-target_link_libraries(${PROJECT} ${catkin_LIBRARIES} Qt5::Widgets)
+target_link_libraries(${PROJECT} ${catkin_LIBRARIES} Qt6::Widgets stateManager devices)
 target_include_directories(${PROJECT} PUBLIC ${CMAKE_CURRENT_LIST_DIR})

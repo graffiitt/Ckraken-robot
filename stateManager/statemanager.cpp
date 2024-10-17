@@ -29,7 +29,7 @@ void StateManager::setInfo(QString text)
 
 void StateManager::setLineNumber(int number)
 {
-    ui->lineNumLabel->setText("line " + QString::number(number));
+    ui->lineNumLabel->setText("line " + QString::number(number+1));
 }
 
 void StateManager::setIconState(Icon ico, bool state)
@@ -47,6 +47,10 @@ void StateManager::setIconState(Icon ico, bool state)
         break;
     case Icon::FAULT:
         state ? ui->faultLabel->setStyleSheet(redColor) : ui->faultLabel->setStyleSheet(emptyColor);
+        break;
+
+    case Icon::MCU:
+        state ? ui->mcuLabel->setStyleSheet(yellowColor) : ui->mcuLabel->setStyleSheet(emptyColor);
         break;
     default:
         break;

@@ -9,6 +9,8 @@ IExecutor::IExecutor(CommandModel *model) : cmdModel(model)
 
 IExecutor::~IExecutor()
 {
+    emit stopExecCmd();
+    future.waitForFinished();
 }
 
 void IExecutor::setMode(bool step)
@@ -23,16 +25,19 @@ void IExecutor::exec()
     StateManager::getInstance()->setIconState(StateManager::RUN, true);
     StateManager::getInstance()->setIconState(StateManager::HOLD, false);
 
-    QtConcurrent::run([this]()
-                      { 
+    future = QtConcurrent::run([this]()
+                               { 
                         const QList<ICommand *> commands = cmdModel->getListCommands();
                         for (; (numCommand < cmdModel->getSize()) && (running); numCommand++)
                         {
-                            QMetaObject::invokeMethod(this, "changeLine", Qt::QueuedConnection, Q_ARG(int, numCommand));
-                          
-                            // QThread::sleep(1);
-                            cmdModel->getCommand(numCommand)->execCommand(numCommand, commands);
+                            QMetaObject::invokeMethod(this, "changeLine", Qt::DirectConnection, Q_ARG(int, numCommand));
                             
+                            //  change programm
+
+                            connect(this, &IExecutor::stopExecCmd, cmdModel->getCommand(numCommand), &ICommand::stopExec);
+                            cmdModel->getCommand(numCommand)->execCommand(numCommand, commands);
+                            disconnect(this, &IExecutor::stopExecCmd,0, 0);
+
                             if(stepMode)
                             {
                                 numCommand++;
@@ -43,12 +48,13 @@ void IExecutor::exec()
                         QMetaObject::invokeMethod(StateManager::getInstance(), [this]()
                               {
                                  StateManager::getInstance()->setIconState(StateManager::RUN, false);
-                              }, Qt::QueuedConnection);            
-                        finished(); });
+                                 emit finished();
+                              }, Qt::QueuedConnection); });
 }
 
 void IExecutor::stop()
 {
     StateManager::getInstance()->setIconState(StateManager::HOLD, true);
     running = false;
+    emit stopExecCmd();
 }

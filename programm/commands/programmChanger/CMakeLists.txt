@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-set(PROJECT programm_part)
+set(PROJECT prgChanger_cmd)
  
 file(GLOB CPP_FILE "*.cpp")
 message("Adding ${PROJECT} CPP files: " )
@@ -19,19 +19,17 @@ foreach(source ${UI_FILE})
     message("  - " ${source})
 endforeach(source)
 
-add_subdirectory(commands/comment)
-add_subdirectory(commands/time)
-add_subdirectory(commands/programmChanger)
-find_library(stateManager ../../stateManager)
+find_library(stateManager ../../../stateManager)
 
 add_library( 
     ${PROJECT} SHARED
+    ../icommand.h
+    ../icommand.cpp
+    ../icommandform.h
     ${CPP_FILE}
-    commands/icommand.cpp
-    commands/icommand.h
     ${H_FILE}
     ${UI_FILE}
     )
 
-target_link_libraries(${PROJECT} ${catkin_LIBRARIES} Qt6::Widgets comment_cmd time_cmd prgChanger_cmd stateManager )
+target_link_libraries(${PROJECT} ${catkin_LIBRARIES} Qt6::Widgets stateManager)
 target_include_directories(${PROJECT} PUBLIC ${CMAKE_CURRENT_LIST_DIR})

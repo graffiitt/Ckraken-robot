@@ -12,11 +12,13 @@ class ICommand : public QObject
 {
 public:
     ICommand(int indexWidget);
-    ~ICommand();
+    virtual ~ICommand(){};
 
+    int getIndex();
+   
     virtual QString getStroke() = 0;
     virtual int execCommand(int number, const QList<ICommand *> &programm) = 0;
-    int getIndex();
+    virtual void stopExec() { qDebug() << "stop exec icommands"; };
 
     virtual QJsonObject toJSON() = 0;
     virtual void fromJSON(const QJsonObject &obj) = 0;

@@ -29,6 +29,10 @@ ProgrammForm::ProgrammForm(QWidget *parent)
     ui->commandsWidget->addTab(timeWidget, timeWidget->getName());
     connect(this, &ProgrammForm::changeEditMode, timeWidget, &ICommandForm::setEnabled);
 
+    prgChanger = new PrgChangeForm("prg loader");
+    ui->commandsWidget->addTab(prgChanger, prgChanger->getName());
+    connect(this, &ProgrammForm::changeEditMode, prgChanger, &ICommandForm::setEnabled);
+
     model = new CommandModel();
     ui->tableView->setModel(model);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeMode::Stretch);
@@ -52,7 +56,8 @@ ProgrammForm::ProgrammForm(QWidget *parent)
     connect(ui->tableView, &QTableView::clicked, this, &ProgrammForm::on_itemClicked);
 
     connect(commentWidget, &CommentForm::dataChanged, model, &CommandModel::updateData);
-    connect(timeWidget, &CommentForm::dataChanged, model, &CommandModel::updateData);
+    connect(timeWidget, &TimeForm::dataChanged, model, &CommandModel::updateData);
+    connect(prgChanger, &PrgChangeForm::dataChanged, model, &CommandModel::updateData);
 }
 
 ProgrammForm::~ProgrammForm()
@@ -63,6 +68,7 @@ ProgrammForm::~ProgrammForm()
     delete model;
     delete commentWidget;
     delete timeWidget;
+    delete prgChanger;
 }
 
 void ProgrammForm::openProgramm()

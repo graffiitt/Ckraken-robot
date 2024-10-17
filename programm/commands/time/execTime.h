@@ -2,21 +2,27 @@
 #define EXECTIMER_H
 
 #include "../icommand.h"
+#include <QTimer>
 
 class ExecutorTimer : public ICommand
 {
+    Q_OBJECT
 public:
     ExecutorTimer(int index);
     ~ExecutorTimer();
 
     // virtual
-    QString getStroke();
-    int execCommand(int number, const QList<ICommand *> &programm);
+    QString getStroke() override;
+    int execCommand(int number, const QList<ICommand *> &programm) override;
+    virtual void stopExec() override;
+    QJsonObject toJSON() override;
+    void fromJSON(const QJsonObject &obj) override;
 
     void setTime(uint time) { timeDelay = time; };
     uint getTime() { return timeDelay; };
-    QJsonObject toJSON();
-    void fromJSON(const QJsonObject &obj);
+
+signals:
+    void stop();
 
 private:
     uint timeDelay = 0;

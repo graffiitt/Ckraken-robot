@@ -8,11 +8,12 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt6 COMPONENTS Widgets REQUIRED)
 
 add_subdirectory(io_widget)
 add_subdirectory(programm)
 add_subdirectory(stateManager)
+add_subdirectory(devices)
 
 file(GLOB CPP_FILE "*.cpp")
 message("Adding ${PROJECT_NAME} CPP files: " )
@@ -42,7 +43,7 @@ add_executable(
     ${QRCFILE}
     )
 
-target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} Qt5::Widgets programm_part stateManager ioWidget)
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} Qt6::Widgets programm_part stateManager ioWidget)
 target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 
 install(TARGETS ${PROJECT_NAME}

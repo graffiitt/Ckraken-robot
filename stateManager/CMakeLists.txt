@@ -26,5 +26,5 @@ add_library(
     ${UI_FILE}
     )
 
-target_link_libraries(${PROJECT} ${catkin_LIBRARIES} Qt5::Widgets)
+target_link_libraries(${PROJECT} ${catkin_LIBRARIES} Qt6::Widgets)
 target_include_directories(${PROJECT} PUBLIC ${CMAKE_CURRENT_LIST_DIR})

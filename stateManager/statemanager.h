@@ -38,8 +38,8 @@ public:
 
     void setProgrammName(QString path);
     void setInfo(QString text);
-    void setIconState(enum Icon ico, bool state);
     void setLineNumber(int number);
+    void setIconState(enum Icon ico, bool state);
 
 private:
     StateManager(QWidget *parent = nullptr);
