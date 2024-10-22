@@ -13,7 +13,7 @@ public:
 
     // virtual
     QString getStroke() override;
-    int execCommand(int number, const QList<ICommand *> &programm) override;
+    ID_COMMAND execCommand(std::atomic_int &number, const QList<ICommand *> &programm) override;
     virtual void stopExec() override;
     QJsonObject toJSON() override;
     void fromJSON(const QJsonObject &obj) override;

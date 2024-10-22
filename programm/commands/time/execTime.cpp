@@ -15,7 +15,7 @@ QString ExecutorTimer::getStroke()
     return "wait " + QString::number(timeDelay);
 }
 
-int ExecutorTimer::execCommand(int number, const QList<ICommand *> &programm)
+ICommand::ID_COMMAND ExecutorTimer::execCommand(std::atomic_int &number, const QList<ICommand *> &programm)
 {
     Q_UNUSED(programm);
     
@@ -26,11 +26,12 @@ int ExecutorTimer::execCommand(int number, const QList<ICommand *> &programm)
     t.start(timeDelay*1000);
     loop.exec();
 
-    return number++;
+    return ID_COMMAND::TIMER;
 }
 
 void ExecutorTimer::stopExec()
 {
+    qDebug() << "stop exec time";
     emit stop();
 }
 

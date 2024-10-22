@@ -11,13 +11,20 @@
 class ICommand : public QObject
 {
 public:
-    ICommand(int indexWidget);
-    virtual ~ICommand(){};
+    enum ID_COMMAND
+    {
+        CHANGE_PRG,
+        TIMER,
+        COMMENTARY,
+    };
 
-    int getIndex();
-   
+    ICommand(int indexWidget){};
+    virtual ~ICommand() {};
+
+    int getIndex() { return index; };
+
     virtual QString getStroke() = 0;
-    virtual int execCommand(int number, const QList<ICommand *> &programm) = 0;
+    virtual ID_COMMAND execCommand(std::atomic_int &number, const QList<ICommand *> &programm) = 0;
     virtual void stopExec() { qDebug() << "stop exec icommands"; };
 
     virtual QJsonObject toJSON() = 0;

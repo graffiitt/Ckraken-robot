@@ -23,9 +23,6 @@ public:
     void setCommand(ICommand *cmd);
     ICommand *createCommand(int index);
 
-public slots:
-    virtual void setEditing(bool state) { this->setEnabled(state); };
-
 private:
     Ui::TimeForm *ui;
     ExecutorTimer *cmd;

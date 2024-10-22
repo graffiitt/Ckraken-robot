@@ -12,6 +12,8 @@
 #include "timeform.h"
 #include "prgchangeform.h"
 
+#include <QThread>
+
 QT_BEGIN_NAMESPACE
 namespace Ui
 {
@@ -45,6 +47,8 @@ private:
     CommentForm *commentWidget;
     PrgChangeForm *prgChanger;
     CommandModel *model;
+
+    QThread *threadExec;
 
     IExecutor *executor;
 

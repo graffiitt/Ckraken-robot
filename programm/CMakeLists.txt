@@ -27,7 +27,6 @@ find_library(stateManager ../../stateManager)
 add_library( 
     ${PROJECT} SHARED
     ${CPP_FILE}
-    commands/icommand.cpp
     commands/icommand.h
     ${H_FILE}
     ${UI_FILE}

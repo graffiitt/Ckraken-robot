@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>703</width>
+    <width>553</width>
     <height>342</height>
    </rect>
   </property>
@@ -14,24 +14,31 @@
    <string>Graffit Robotics</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="../../../resource/resource.qrc">
     <normaloff>:/icons/img/icon.png</normaloff>:/icons/img/icon.png</iconset>
   </property>
   <property name="documentMode" stdset="0">
    <bool>false</bool>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>comment:</string>
+   <item row="0" column="1">
+    <widget class="QComboBox" name="filesBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
     </widget>
    </item>
-   <item row="0" column="1">
-    <widget class="QLineEdit" name="lineEdit"/>
+   <item row="0" column="2">
+    <widget class="QPushButton" name="changeWorkspaceButton">
+     <property name="text">
+      <string>choose workspace</string>
+     </property>
+    </widget>
    </item>
-   <item row="1" column="1">
+   <item row="3" column="2">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -44,10 +51,30 @@
      </property>
     </spacer>
    </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>files:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QPushButton" name="updateFilesButton">
+     <property name="text">
+      <string>update files</string>
+     </property>
+    </widget>
+   </item>
   </layout>
   <action name="createFileAction">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../../resource/resource.qrc">
      <normaloff>:/icons/img/file-plus.svg</normaloff>:/icons/img/file-plus.svg</iconset>
    </property>
    <property name="text">
@@ -59,7 +86,7 @@
   </action>
   <action name="openFileAction">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../../resource/resource.qrc">
      <normaloff>:/icons/img/file.svg</normaloff>:/icons/img/file.svg</iconset>
    </property>
    <property name="text">
@@ -71,7 +98,7 @@
   </action>
   <action name="saveAsFileAction">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../../resource/resource.qrc">
      <normaloff>:/icons/img/file-text.svg</normaloff>:/icons/img/file-text.svg</iconset>
    </property>
    <property name="text">
@@ -83,7 +110,7 @@
   </action>
   <action name="motorContrlAction">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../../resource/resource.qrc">
      <normaloff>:/icons/img/trello.svg</normaloff>:/icons/img/trello.svg</iconset>
    </property>
    <property name="text">
@@ -95,7 +122,7 @@
   </action>
   <action name="resetAction">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../../resource/resource.qrc">
      <normaloff>:/icons/img/repeat.svg</normaloff>:/icons/img/repeat.svg</iconset>
    </property>
    <property name="text">
@@ -107,7 +134,7 @@
   </action>
   <action name="connectSTM_action">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../../resource/resource.qrc">
      <normaloff>:/icons/img/shuffle.svg</normaloff>:/icons/img/shuffle.svg</iconset>
    </property>
    <property name="text">
@@ -119,7 +146,7 @@
   </action>
   <action name="saveAction">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../../resource/resource.qrc">
      <normaloff>:/icons/img/save.svg</normaloff>:/icons/img/save.svg</iconset>
    </property>
    <property name="text">
@@ -141,7 +168,7 @@
   </action>
  </widget>
  <resources>
-  <include location="../resource/resource.qrc"/>
+  <include location="../../../resource/resource.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -22,9 +22,8 @@ endforeach(source)
 find_library(stateManager ../../../stateManager)
 
 add_library( 
-    ${PROJECT} SHARED
+    ${PROJECT} STATIC
     ../icommand.h
-    ../icommand.cpp
     ../icommandform.h
     ${CPP_FILE}
     ${H_FILE}

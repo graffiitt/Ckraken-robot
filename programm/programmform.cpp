@@ -33,18 +33,24 @@ ProgrammForm::ProgrammForm(QWidget *parent)
     ui->commandsWidget->addTab(prgChanger, prgChanger->getName());
     connect(this, &ProgrammForm::changeEditMode, prgChanger, &ICommandForm::setEnabled);
 
+    ui->commandsWidget->setCurrentIndex(0);
+
     model = new CommandModel();
     ui->tableView->setModel(model);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeMode::Stretch);
     ui->tableView->setWordWrap(true);
+
     executor = new IExecutor(model);
+    threadExec = new QThread();
+    executor->moveToThread(threadExec);
 
-    ui->commandsWidget->setCurrentIndex(0);
-
+    connect(threadExec, &QThread::started, executor, &IExecutor::exec);
     connect(executor, &IExecutor::finished, [this]()
             {
+                qDebug() << "signal stop thread";
                 emit changeEditMode(true); 
-                ui->runButton->setEnabled(true); });
+                ui->runButton->setEnabled(true); 
+                threadExec->quit();});
     connect(executor, &IExecutor::changeLine, this, &ProgrammForm::on_changeLine, Qt::DirectConnection);
 
     connect(ui->holdButton, &QPushButton::clicked, this, &ProgrammForm::on_stopCommand);
@@ -64,6 +70,7 @@ ProgrammForm::~ProgrammForm()
 {
     executor->stop();
     delete ui;
+    delete threadExec;
     delete executor;
     delete model;
     delete commentWidget;
@@ -128,7 +135,8 @@ void ProgrammForm::on_runCommand()
 {
     emit changeEditMode(false);
     ui->runButton->setEnabled(false);
-    executor->exec();
+    // executor->exec();
+    threadExec->start();
 }
 
 void ProgrammForm::on_createCommand()
@@ -211,7 +219,7 @@ void ProgrammForm::loadFile(QString path)
             QWidget *widget = ui->commandsWidget->widget((*i).toObject()["index"].toInt());
             model->insertCommand(ui->tableView->currentIndex(),
                                  static_cast<ICommandForm *>(widget)->createCommand((*i).toObject()["index"].toInt()));
-            model->getCommand(i-arry.begin())->fromJSON((*i).toObject());
+            model->getCommand(i - arry.begin())->fromJSON((*i).toObject());
         }
     }
 }

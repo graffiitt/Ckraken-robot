@@ -8,19 +8,15 @@ class ExecutorPrgChange : public ICommand
 
 public:
     ExecutorPrgChange(int index);
-    ~ExecutorPrgChange(){};
+    ~ExecutorPrgChange() {};
 
     // virtual
     QString getStroke();
-    int execCommand(int number, const QList<ICommand *> &programm);
-
-    void setText(QString data) { text = data; };
-    QString getText() { return text; };
+    ID_COMMAND execCommand(std::atomic_int &number, const QList<ICommand *> &programm);
     QJsonObject toJSON();
     void fromJSON(const QJsonObject &obj);
 
 private:
-    QString text;
 };
 
 #endif

@@ -10,28 +10,24 @@ ExecutorPrgChange::ExecutorPrgChange(int index) : ICommand(index)
 QString ExecutorPrgChange::getStroke()
 {
 
-    return "# " + text;
+    return QString();
 }
 
-int ExecutorPrgChange::execCommand(int number, const QList<ICommand *> &programm)
+ICommand::ID_COMMAND ExecutorPrgChange::execCommand(std::atomic_int &number, const QList<ICommand *> &programm)
 {
     Q_UNUSED(programm);
 
-    QMetaObject::invokeMethod(StateManager::getInstance(), [this]()
-                              { StateManager::getInstance()->setInfo(text); }, Qt::QueuedConnection);
-
-    return number++;
+    return ID_COMMAND::CHANGE_PRG;
 }
 
 QJsonObject ExecutorPrgChange::toJSON()
 {
     QJsonObject obj;
     obj["index"] = getIndex();
-    obj["text"] = text;
+
     return obj;
 }
 
 void ExecutorPrgChange::fromJSON(const QJsonObject &obj)
 {
-    text = obj["text"].toString();
 }

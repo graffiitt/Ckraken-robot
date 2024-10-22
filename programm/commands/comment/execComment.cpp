@@ -16,15 +16,15 @@ QString ExecutorComment::getStroke()
 
     return "# " + text;
 }
- 
-int ExecutorComment::execCommand(int number, const QList<ICommand *> &programm)
+
+ICommand::ID_COMMAND ExecutorComment::execCommand(std::atomic_int &number, const QList<ICommand *> &programm)
 {
     Q_UNUSED(programm);
 
     QMetaObject::invokeMethod(StateManager::getInstance(), [this]()
                               { StateManager::getInstance()->setInfo(text); }, Qt::QueuedConnection);
 
-    return number++;
+    return ID_COMMAND::COMMENTARY;
 }
 
 QJsonObject ExecutorComment::toJSON()
@@ -38,5 +38,4 @@ QJsonObject ExecutorComment::toJSON()
 void ExecutorComment::fromJSON(const QJsonObject &obj)
 {
     text = obj["text"].toString();
-    
 }

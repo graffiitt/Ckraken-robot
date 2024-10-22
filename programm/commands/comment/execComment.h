@@ -12,7 +12,7 @@ public:
 
     // virtual
     QString getStroke();
-    int execCommand(int number, const QList<ICommand *> &programm);
+    ID_COMMAND execCommand(std::atomic_int &number, const QList<ICommand *> &programm);
 
     void setText(QString data) { text = data; };
     QString getText() { return text; };

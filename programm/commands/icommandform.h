@@ -17,7 +17,7 @@ public:
     virtual ICommand *createCommand(int index) = 0;
 
 public slots:
-    virtual void setEditing(bool state) {};
+     void setEditing(bool state) { this->setEnabled(state); };
 
 signals:
     void dataChanged();
